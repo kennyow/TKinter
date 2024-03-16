@@ -13,11 +13,12 @@ root.resizable(False, False)
 #Title
 root.title("Widget Examples")
 
-image = Image.open(r"C:\Users\kenny\Documents\Projeto Python\Tkinter\aaroma.png").resize((64,64))
-photo = ImageTk.PhotoImage(image)
-label = ttk.Label(root, text = "Il migliore" , image=photo, padding = 5, compound = "right")
+greeting = tk.StringVar()
+
+label = ttk.Label(root, padding=10, textvariable=greeting)
 label.pack()
 
+greeting.set("Hello, John")
 
 
 
