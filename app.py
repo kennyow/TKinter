@@ -1,6 +1,8 @@
 import tkinter as tk
 from tkinter import ttk #buttons, labels, etc
 
+
+# Para melhoramento visual da janela criada
 try:
     from ctypes import windll
     windll.shcore.SetProcessDpiAwareness(1)
