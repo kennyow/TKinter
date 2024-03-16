@@ -1,5 +1,6 @@
 import tkinter as tk
 from tkinter import ttk
+from PIL import Image, ImageTk
 from windows import set_dpi_awareness
 
 set_dpi_awareness()
@@ -12,9 +13,13 @@ root.resizable(False, False)
 #Title
 root.title("Widget Examples")
 
-label = ttk.Label(root, text="Roma", padding = 20)
-label.config(font=('Segoe UI', 20))
-label.pack() 
+image = Image.open("aaroma.png")
+photo = ImageTk.PhotoImage(image)
+label = ttk.Label(root, image=photo, padding = 5)
+label. pack()
+
+
+
 
 
 '''main =ttk.Frame(root) #Criando um frame para caber os botões
