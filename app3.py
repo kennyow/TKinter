@@ -1,18 +1,19 @@
 import tkinter as tk
 from tkinter import ttk
-from windows import set_dpi_awareness
-
-set_dpi_awareness()
-
 
 root = tk.Tk()
 root.geometry("600x400")
 
-main =ttk.Frame(root) #Criando um frame para caber os botões
-main.pack(side="left", fill="both", expand=True )
+main = ttk.Frame(root)
+main.pack(side="left", fill="both", expand=True)
 
+# Adicionando um separador preto e mais largo entre os widgets empacotados
+ttk.Separator(main, orient='horizontal', bg='black', thickness=2).pack(fill='x')
 
-tk.Label(main, text="Label top", bg="red").pack(side="top", expand=True, fill='both') #Fill x faz com que o retângulo preencha todo o espaço da largura
-tk.Label(main, text="Label top", bg="red").pack(side="top", expand=True, fill='both') 
-tk.Label(root, text="Label left", bg="green").pack(side="left", expand=True, fill='both') 
+tk.Label(main, text="Label top", bg="red").pack(side="top", expand=True, fill='both')
+tk.Label(main, text="Label top", bg="blue").pack(side="top", expand=True, fill='both')
+
+tk.Label(root, text="Label left", bg="green").pack(side="left", expand=True, fill='both')
+
 root.mainloop()
+
