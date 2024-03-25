@@ -6,7 +6,11 @@ import tkinter.font as font
 
 set_dpi_awareness()
 
+class Helloworld(tk.tk):
+    def __init__(self):
+        super().__init__()
 
+        UserInputFrame(self).pack()
 
 class UserInputFrame(ttk.Frame):
     def __init__(self, container):
@@ -25,10 +29,7 @@ class UserInputFrame(ttk.Frame):
     def greet(self):
         print(f"Hello, {self.user_input.get()}!")
 
-root = tk.Tk()
 
-frame = UserInputFrame(root)
-frame.pack()
-
+root = Helloworld()
 root.mainloop()
 
