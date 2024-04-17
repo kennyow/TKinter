@@ -48,7 +48,7 @@ class Timer(ttk.Frame):
 
         button_container = ttk.Frame(self, padding=10)
         button_container.grid(row=2, column=0, sticky="EW")
-        button_container.columnconfigure((0,1), weight=1)
+        button_container.columnconfigure((0, 1, 2), weight=1)
 
         self.start_button = ttk.Button(
             button_container,
@@ -69,6 +69,17 @@ class Timer(ttk.Frame):
 
         self.stop_button.grid(row=0, column=1, sticky="EW", padx=5)
 
+
+        reset_button = ttk.Button(
+            button_container,
+            text="Reset",
+            command = self.reset_timer,
+            cursor = "hand2"
+            )
+        
+        reset_button.grid(row=0, column=2, sticky="EW")
+
+
     def start_timer(self):
         self.timer_running = True
         self.start_button["state"] = "disabled"
@@ -84,6 +95,11 @@ class Timer(ttk.Frame):
             self.after_cancel(self._timer_decremet_job)
             self._timer_decremet_job = None
 
+    def reset_timer(self):
+        self.stop_timer()
+        self.current_time.set("25:00")
+        self.timer_schedule = deque(self.timer_order)
+        self.current_time_label.set(self.timer_schedule[0])
 
     def decrement_time(self):
         current_time = self.current_time.get()
